@@ -1,224 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VACPL | Electrical Panel & Automation Experts</title>
   <style>
-    :root {
-      --purple1: #5A189A;
-      --purple2: #9D4EDD;
-      --light: #f8f6ff;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      font-family: "Segoe UI", sans-serif;
-      background: #fff;
-      color: #222;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #5A189A, #9D4EDD);
       overflow-x: hidden;
     }
 
-    /* ===== HERO SECTION ===== */
-    header {
+    /* --- HERO SLIDESHOW --- */
+    .slideshow-container {
       position: relative;
       height: 100vh;
-      background: linear-gradient(rgba(90,24,154,0.7), rgba(90,24,154,0.7)),
-                  url('image1.jpeg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero-content {
-      max-width: 900px;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(6px);
-      padding: 40px 60px;
-      border-radius: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
-
-    .hero-content h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .hero-content p {
-      font-size: 1.3rem;
-      font-weight: 300;
-      margin-bottom: 24px;
-    }
-
-    .cta-btn {
-      background: #fff;
-      color: var(--purple1);
-      text-decoration: none;
-      padding: 14px 36px;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background: var(--light);
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-    }
-
-    /* ===== ABOUT SECTION ===== */
-    section {
-      padding: 90px 10%;
-      position: relative;
-    }
-
-    section:nth-child(even) {
-      background: var(--light);
-    }
-
-    h2 {
-      text-align: center;
-      color: var(--purple1);
-      font-size: 2.2rem;
-      margin-bottom: 30px;
-    }
-
-    section p {
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-
-    /* ===== PRODUCT / SERVICE CARDS ===== */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 28px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card img {
+    .slide {
+      position: absolute;
       width: 100%;
-      height: 200px;
-      object-fit: cover;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: slideFade 18s infinite;
     }
 
-    .card h3 {
-      color: var(--purple1);
-      font-size: 1.3rem;
-      margin: 15px;
+    .slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1581091215367-59ab6c5e0c1b?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 0s;
+    }
+
+    .slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1581092334440-47a6f8b9a18e?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 6s;
+    }
+
+    .slide:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 12s;
+    }
+
+    @keyframes slideFade {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      30% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      background: rgba(90, 24, 154, 0.6);
+      z-index: 2;
+      padding: 20px;
     }
 
-    /* ===== CONTACT ===== */
-    .contact {
-      background: linear-gradient(135deg, var(--purple1), var(--purple2));
-      color: #fff;
-      text-align: center;
-      padding: 80px 20px;
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      letter-spacing: 1px;
     }
 
-    .contact h2 {
-      color: #fff;
+    header p {
+      font-size: 1.3em;
+      font-weight: 300;
       margin-bottom: 20px;
     }
 
-    .contact p {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
+    .cta {
+      background: #fff;
+      color: #5A189A;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #E0AAFF;
+      color: #3C096C;
+    }
+
+    section {
+      padding: 60px 15%;
+      background: #fff;
+      color: #333;
+      border-radius: 40px 40px 0 0;
+      margin-top: -40px;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #5A189A;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .services, .industries {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #f9f9ff;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact {
+      background: #5A189A;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
     }
 
     .contact a {
       color: #fff;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
 
-    /* ===== FOOTER ===== */
     footer {
       background: #3C096C;
-      color: #ddd;
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
+      font-size: 0.9em;
+      color: #ddd;
     }
 
     @media (max-width: 768px) {
-      .hero-content {
-        padding: 30px 25px;
-      }
-      .hero-content h1 {
-        font-size: 2rem;
-      }
-      section {
-        padding: 70px 6%;
-      }
+      header h1 { font-size: 2.2em; }
+      section { padding: 40px 8%; }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <div class="hero-content">
+  <div class="slideshow-container">
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+
+    <header>
       <h1>Venkateshwara Automation & Control Pvt. Ltd.</h1>
-      <p>Smart Electrical Panel Manufacturing & Automation Solutions Since 2001</p>
-      <a href="#contact" class="cta-btn">Get in Touch</a>
-    </div>
-  </header>
+      <p>Delivering Smart Electrical & Automation Solutions Since 2001</p>
+      <a href="#contact" class="cta">Contact Us</a>
+    </header>
+  </div>
 
   <section id="about">
     <h2>About VACPL</h2>
-    <p><strong>VACPL</strong> is an ISO 9001:2008 certified company headquartered in Pune, Maharashtra.  
-    We specialize in <strong>Electrical Control Panel Manufacturing</strong> and <strong>Industrial Automation</strong> with a focus on quality, safety, and innovation since 2001.</p>
+    <p><strong>VACPL (Venkateshwara Automation & Control Pvt. Ltd.)</strong> is an ISO 9001:2008 certified company headquartered in Pune, Maharashtra. Since 2001, we have been delivering best-in-class <strong>Electrical Panel Manufacturing</strong> and <strong>Automation Solutions</strong> with a focus on quality, precision, and innovation.</p>
   </section>
 
-  <section id="products">
-    <h2>Our Products</h2>
-    <div class="card-grid">
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581091215367-59ab6c5e0c1b?auto=format&fit=crop&w=900&q=80" alt="Control Panel">
-        <h3>Control Panels</h3>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=900&q=80" alt="Automation System">
-        <h3>Automation Systems</h3>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1618888494971-df3fe8f3f407?auto=format&fit=crop&w=900&q=80" alt="PLC Panels">
-        <h3>PLC Panels</h3>
-      </div>
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1508921231320-19371973a8a5?auto=format&fit=crop&w=900&q=80" alt="SCADA Systems">
-        <h3>SCADA Systems</h3>
-      </div>
+  <section id="services">
+    <h2>Our Core Services</h2>
+    <div class="services">
+      <div class="card"><h3>Panel Manufacturing</h3><p>Custom-built electrical control panels up to 6000A with 50kA/70kA fault levels.</p></div>
+      <div class="card"><h3>Automation Engineering</h3><p>PLC, SCADA, HMI, and IoT-based automation systems with advanced monitoring.</p></div>
+      <div class="card"><h3>Commissioning</h3><p>End-to-end setup, testing, and deployment of control systems at client sites.</p></div>
+      <div class="card"><h3>Integration & IoT</h3><p>Seamless connectivity between automation, IT, and data analytics platforms.</p></div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <h2>Industries We Serve</h2>
+    <div class="industries">
+      <div class="card">Food & Beverages</div>
+      <div class="card">Pharmaceuticals</div>
+      <div class="card">Automotive</div>
+      <div class="card">Material Handling</div>
+      <div class="card">Energy & Power</div>
+      <div class="card">Consumer Goods</div>
+      <div class="card">Infrastructure & Utilities</div>
+      <div class="card">Oil & Gas</div>
+      <div class="card">Textiles</div>
+      <div class="card">Metals & Mining</div>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p><strong>Head Office:</strong> Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
-    <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009</p>
-    <p><strong>Email:</strong> <a href="mailto:info@vacpl.net">info@vacpl.net</a></p>
+    <p><strong>Head Office:</strong><br>Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
+    <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009<br>
+    <strong>Email:</strong> <a href="mailto:info@vacpl.net">info@vacpl.net</a>, <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a></p>
   </section>
 
   <footer>
@@ -226,4 +214,4 @@
   </footer>
 
 </body>
-</html>
+</html> sliding not working

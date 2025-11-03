@@ -13,72 +13,32 @@
       overflow-x: hidden;
     }
 
-    /* --- HERO SLIDESHOW --- */
-    .slideshow-container {
+    /* --- HERO SECTION (STATIC IMAGE) --- */
+    .hero {
       position: relative;
       height: 100vh;
-      overflow: hidden;
-    }
-
-    .slide {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      opacity: 0;
-      animation: slideFade 18s infinite;
-    }
-
-    .slide:nth-child(1) {
-      background-image: url('https://images.unsplash.com/photo-1581091215367-59ab6c5e0c1b?auto=format&fit=crop&w=1950&q=80');
-      animation-delay: 0s;
-    }
-
-    .slide:nth-child(2) {
-      background-image: url('https://images.unsplash.com/photo-1581092334440-47a6f8b9a18e?auto=format&fit=crop&w=1950&q=80');
-      animation-delay: 6s;
-    }
-
-    .slide:nth-child(3) {
-      background-image: url('https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=1950&q=80');
-      animation-delay: 12s;
-    }
-
-    @keyframes slideFade {
-      0% { opacity: 0; }
-      5% { opacity: 1; }
-      30% { opacity: 1; }
-      35% { opacity: 0; }
-      100% { opacity: 0; }
-    }
-
-    header {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      background: 
+        linear-gradient(rgba(90, 24, 154, 0.6), rgba(61, 0, 102, 0.6)),
+        url('image1.jpeg') center/cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: rgba(90, 24, 154, 0.6);
-      z-index: 2;
       padding: 20px;
     }
 
-    header h1 {
+    .hero h1 {
       font-size: 3em;
       margin-bottom: 0.3em;
       letter-spacing: 1px;
     }
 
-    header p {
+    .hero p {
       font-size: 1.3em;
       font-weight: 300;
       margin-bottom: 20px;
+      max-width: 800px;
     }
 
     .cta {
@@ -96,6 +56,7 @@
       color: #3C096C;
     }
 
+    /* --- MAIN CONTENT --- */
     section {
       padding: 60px 15%;
       background: #fff;
@@ -152,30 +113,27 @@
     }
 
     @media (max-width: 768px) {
-      header h1 { font-size: 2.2em; }
+      .hero h1 { font-size: 2.2em; }
       section { padding: 40px 8%; }
     }
   </style>
 </head>
 <body>
 
-  <div class="slideshow-container">
-    <div class="slide"></div>
-    <div class="slide"></div>
-    <div class="slide"></div>
-
-    <header>
-      <h1>Venkateshwara Automation & Control Pvt. Ltd.</h1>
-      <p>Delivering Smart Electrical & Automation Solutions Since 2001</p>
-      <a href="#contact" class="cta">Contact Us</a>
-    </header>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Venkateshwara Automation & Control Pvt. Ltd.</h1>
+    <p>Delivering Smart Electrical & Automation Solutions Since 2001</p>
+    <a href="#contact" class="cta">Contact Us</a>
   </div>
 
+  <!-- ABOUT -->
   <section id="about">
     <h2>About VACPL</h2>
     <p><strong>VACPL (Venkateshwara Automation & Control Pvt. Ltd.)</strong> is an ISO 9001:2008 certified company headquartered in Pune, Maharashtra. Since 2001, we have been delivering best-in-class <strong>Electrical Panel Manufacturing</strong> and <strong>Automation Solutions</strong> with a focus on quality, precision, and innovation.</p>
   </section>
 
+  <!-- SERVICES -->
   <section id="services">
     <h2>Our Core Services</h2>
     <div class="services">
@@ -186,6 +144,7 @@
     </div>
   </section>
 
+  <!-- INDUSTRIES -->
   <section id="industries">
     <h2>Industries We Serve</h2>
     <div class="industries">
@@ -202,6 +161,7 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
     <p><strong>Head Office:</strong><br>Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
@@ -214,4 +174,4 @@
   </footer>
 
 </body>
-</html> sliding not working
+</html>

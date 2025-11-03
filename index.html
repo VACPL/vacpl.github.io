@@ -3,209 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VACPL | Vishwakarma Automation & Control Pvt. Ltd.</title>
+  <title>VACPL | Electrical Panel & Automation Experts</title>
   <style>
-    :root {
-      --primary: #5e17eb;      /* Purple main */
-      --accent: #a066ff;       /* Light purple accent */
-      --text: #222;
-      --bg: #ffffff;
-      --section-bg: #f5f3fb;
-    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      background: linear-gradient(135deg, #5A189A, #9D4EDD);
+      overflow-x: hidden;
     }
 
     header {
-      background: var(--primary);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      flex-wrap: wrap;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      letter-spacing: 0.5px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    nav a:hover {
-      color: #ffebf7;
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: url('https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      position: relative;
     }
 
-    .hero {
-      text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(90, 24, 154, 0.7);
     }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+
+    header h1, header p, header a {
+      position: relative;
+      z-index: 1;
     }
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 0.3em;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    header p {
+      font-size: 1.3em;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      background: #fff;
+      color: #5A189A;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .cta:hover {
+      background: #E0AAFF;
+      color: #3C096C;
     }
 
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
+      padding: 60px 15%;
+      background: #fff;
+      color: #333;
+      border-radius: 40px 40px 0 0;
+      margin-top: -40px;
+      box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
     }
-    h3 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      border-left: 6px solid var(--accent);
-      padding-left: 10px;
+
+    h2 {
+      color: #5A189A;
+      text-align: center;
+      margin-bottom: 40px;
     }
-    p, li { line-height: 1.7; }
 
     .services, .industries {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 30px;
     }
 
     .card {
-      background: var(--section-bg);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      background: #f9f9ff;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
     }
+
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
-    .card h4 {
-      color: var(--primary);
-      margin-top: 0;
+
+    .contact {
+      background: #5A189A;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .contact a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
     }
 
     footer {
-      background: var(--primary);
-      color: white;
+      background: #3C096C;
       text-align: center;
-      padding: 25px 10px;
-      margin-top: 40px;
-      font-size: 0.95rem;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #ddd;
     }
 
-    .contact-info p { margin: 5px 0; }
-
-    @media (max-width: 600px) {
-      header { flex-direction: column; text-align: center; }
-      nav a { margin: 8px; display: inline-block; }
-      .hero h2 { font-size: 2rem; }
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.2em; }
+      section { padding: 40px 8%; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>VACPL</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#industries">Industries</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <h1>Venkateshwara Automation & Control Pvt. Ltd.</h1>
+    <p>Delivering Smart Electrical & Automation Solutions Since 2001</p>
+    <a href="#contact" class="cta">Contact Us</a>
   </header>
 
-  <section class="hero">
-    <h2>Electrical Panels & Automation Solutions</h2>
-    <p>VACPL — Delivering precision, innovation, and reliability since 2001.</p>
-  </section>
-
   <section id="about">
-    <h3>🏢 About VACPL</h3>
-    <p><strong>Full Name:</strong> Vishwakarma Automation & Control Pvt. Ltd. (VACPL)</p>
-    <p><strong>Established:</strong> Operating since 2001</p>
-    <p><strong>Head Office:</strong> Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
-    <p><strong>Vision:</strong> Deliver best-in-class electrical and automation solutions using modern technologies.</p>
-    <p><strong>Mission:</strong> Ensure precision, innovation, and reliability in every automation project.</p>
-    <p><strong>Certifications:</strong> ISO 9001:2008 certified.</p>
+    <h2>About VACPL</h2>
+    <p><strong>VACPL (Venkateshwara Automation & Control Pvt. Ltd.)</strong> is an ISO 9001:2008 certified company headquartered in Pune, Maharashtra. Since 2001, we have been delivering best-in-class <strong>Electrical Panel Manufacturing</strong> and <strong>Automation Solutions</strong> with a focus on quality, precision, and innovation.</p>
   </section>
 
   <section id="services">
-    <h3>⚙️ Core Services</h3>
+    <h2>Our Core Services</h2>
     <div class="services">
-      <div class="card">
-        <h4>Panel / Cabinet Manufacturing</h4>
-        <p>Custom-built control panels up to 6000A, 50kA/70kA fault levels designed for durability and safety.</p>
-      </div>
-      <div class="card">
-        <h4>Software Engineering</h4>
-        <p>PLC, SCADA, HMI, and IoT-based automation software tailored to industry needs.</p>
-      </div>
-      <div class="card">
-        <h4>Commissioning</h4>
-        <p>End-to-end testing and deployment of automation systems with precision.</p>
-      </div>
-      <div class="card">
-        <h4>Automation with IT/IoT</h4>
-        <p>Integration of automation systems with real-time monitoring, analytics, and dashboards.</p>
-      </div>
-      <div class="card">
-        <h4>Interface Solutions</h4>
-        <p>Seamless connectivity between machines, devices, and software platforms.</p>
-      </div>
+      <div class="card"><h3>Panel Manufacturing</h3><p>Custom-built electrical control panels up to 6000A with 50kA/70kA fault levels.</p></div>
+      <div class="card"><h3>Automation Engineering</h3><p>PLC, SCADA, HMI, and IoT-based automation systems with advanced monitoring.</p></div>
+      <div class="card"><h3>Commissioning</h3><p>End-to-end setup, testing, and deployment of control systems at client sites.</p></div>
+      <div class="card"><h3>Integration & IoT</h3><p>Seamless connectivity between automation, IT, and data analytics platforms.</p></div>
     </div>
   </section>
 
   <section id="industries">
-    <h3>🌍 Industries Served</h3>
-    <ul>
-      <li>Food & Beverages</li>
-      <li>Pharmaceuticals</li>
-      <li>Automotive</li>
-      <li>Material Handling</li>
-      <li>Energy & Power</li>
-      <li>Consumer Goods</li>
-      <li>Infrastructure & Utilities</li>
-      <li>Oil & Gas</li>
-      <li>Process Industries</li>
-      <li>Textiles</li>
-      <li>Metals & Mining</li>
-    </ul>
-  </section>
-
-  <section id="achievements">
-    <h3>📈 Key Achievements</h3>
-    <ul>
-      <li>250+ projects successfully completed</li>
-      <li>99% client retention rate</li>
-      <li>24+ years of expertise in automation and control systems</li>
-      <li>Global presence — India, Southeast Asia, Middle East, South Africa & Europe</li>
-    </ul>
-  </section>
-
-  <section id="contact">
-    <h3>📞 Contact Information</h3>
-    <div class="contact-info">
-      <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009</p>
-      <p><strong>Email:</strong> <a href="mailto:info@vacpl.net">info@vacpl.net</a>, <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a></p>
-      <p><strong>Website:</strong> <a href="https://vacplindia.com" target="_blank">https://vacplindia.com</a></p>
+    <h2>Industries We Serve</h2>
+    <div class="industries">
+      <div class="card">Food & Beverages</div>
+      <div class="card">Pharmaceuticals</div>
+      <div class="card">Automotive</div>
+      <div class="card">Material Handling</div>
+      <div class="card">Energy & Power</div>
+      <div class="card">Consumer Goods</div>
+      <div class="card">Infrastructure & Utilities</div>
+      <div class="card">Oil & Gas</div>
+      <div class="card">Textiles</div>
+      <div class="card">Metals & Mining</div>
     </div>
   </section>
 
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Head Office:</strong><br>Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
+    <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009<br>
+    <strong>Email:</strong> <a href="mailto:info@vacpl.net">info@vacpl.net</a>, <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a></p>
+  </section>
+
   <footer>
-    <p>© 2025 Vishwakarma Automation & Control Pvt. Ltd. — All Rights Reserved</p>
+    © 2025 Venkateshwara Automation & Control Pvt. Ltd. | All Rights Reserved
   </footer>
 </body>
 </html>

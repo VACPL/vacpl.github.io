@@ -27,16 +27,30 @@
       background-size: cover;
       background-position: center;
       opacity: 0;
-      animation: fade 18s infinite;
+      animation: slideFade 18s infinite;
     }
 
-    .slide:nth-child(1) { background-image: url('https://images.unsplash.com/photo-1581091215367-59ab6c5e0c1b?auto=format&fit=crop&w=1950&q=80'); animation-delay: 0s; }
-    .slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1581092334440-47a6f8b9a18e?auto=format&fit=crop&w=1950&q=80'); animation-delay: 6s; }
-    .slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=1950&q=80'); animation-delay: 12s; }
+    .slide:nth-child(1) {
+      background-image: url('https://images.unsplash.com/photo-1581091215367-59ab6c5e0c1b?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 0s;
+    }
 
-    @keyframes fade {
-      0%, 33.33% { opacity: 1; }
-      40%, 100% { opacity: 0; }
+    .slide:nth-child(2) {
+      background-image: url('https://images.unsplash.com/photo-1581092334440-47a6f8b9a18e?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 6s;
+    }
+
+    .slide:nth-child(3) {
+      background-image: url('https://images.unsplash.com/photo-1581093588401-22f6362a6f16?auto=format&fit=crop&w=1950&q=80');
+      animation-delay: 12s;
+    }
+
+    @keyframes slideFade {
+      0% { opacity: 0; }
+      5% { opacity: 1; }
+      30% { opacity: 1; }
+      35% { opacity: 0; }
+      100% { opacity: 0; }
     }
 
     header {
@@ -59,7 +73,6 @@
       font-size: 3em;
       margin-bottom: 0.3em;
       letter-spacing: 1px;
-      
     }
 
     header p {
@@ -199,5 +212,6 @@
   <footer>
     © 2025 Venkateshwara Automation & Control Pvt. Ltd. | All Rights Reserved
   </footer>
+
 </body>
 </html>

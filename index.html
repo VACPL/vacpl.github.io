@@ -13,15 +13,8 @@
       background: #f8f7fc;
       scroll-behavior: smooth;
     }
-
-    h2, h3 {
-      color: #5A189A;
-      margin-bottom: 10px;
-    }
-
-    a {
-      text-decoration: none;
-    }
+    h2, h3 { color: #5A189A; margin-bottom: 10px; }
+    a { text-decoration: none; }
 
     /* ---- NAVIGATION ---- */
     nav {
@@ -36,31 +29,12 @@
       z-index: 1000;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+    nav .logo img { height: 45px; width: auto; }
+    nav ul { list-style: none; display: flex; gap: 20px; margin: 0; padding: 0; }
+    nav ul li a { color: #fff; font-weight: 500; transition: color 0.3s; }
+    nav ul li a:hover { color: #E0AAFF; }
 
-    nav .logo img {
-      height: 45px;
-      width: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #E0AAFF;
-    }
-
-    /* ---- HERO SECTION ---- */
+    /* ---- HERO ---- */
     .hero {
       height: 60vh;
       background: 
@@ -75,60 +49,37 @@
       padding: 0 10%;
       background-attachment: fixed;
     }
-
-    .hero h1 {
-      font-size: 3em;
-      margin-bottom: 0.4em;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-    }
-
-    .hero p {
-      font-size: 1.2em;
-      margin-bottom: 20px;
-      max-width: 800px;
-    }
-
+    .hero h1 { font-size: 3em; margin-bottom: 0.4em; text-shadow: 2px 2px 8px rgba(0,0,0,0.3); }
+    .hero p { font-size: 1.2em; margin-bottom: 20px; max-width: 800px; }
     .cta {
-      background: #fff;
-      color: #5A189A;
-      padding: 12px 30px;
-      border-radius: 25px;
-      font-weight: 600;
-      transition: 0.3s;
+      background: #fff; color: #5A189A; padding: 12px 30px;
+      border-radius: 25px; font-weight: 600; transition: 0.3s;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
+    .cta:hover { background: #E0AAFF; color: #3C096C; }
 
-    .cta:hover {
-      background: #E0AAFF;
-      color: #3C096C;
-    }
-
-    /* ---- SECTIONS ---- */
+    /* ---- SECTION BASE ---- */
     section {
       padding: 80px 12%;
       position: relative;
     }
-
     section:nth-child(even) {
       background: linear-gradient(180deg, #f8f7fc 0%, #ede9f7 100%);
     }
-
     section:nth-child(odd) {
       background: linear-gradient(180deg, #ffffff 0%, #f4edfb 100%);
     }
-
     .content-center {
       text-align: center;
       margin-bottom: 40px;
     }
 
-    /* ---- CARDS ---- */
+    /* ---- CARD GRID ---- */
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 30px;
     }
-
     .card {
       background: #fff;
       border-radius: 15px;
@@ -137,11 +88,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-    }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 6px 16px rgba(0,0,0,0.15); }
 
     /* ---- LOGO GRIDS ---- */
     .logo-grid {
@@ -151,22 +98,52 @@
       align-items: center;
       justify-items: center;
     }
-
     .logo-grid img {
-      width: 140px;
-      height: 100px;
-      object-fit: contain;
-      filter: grayscale(0%);
-      transition: all 0.3s ease;
-      background: #fff;
-      border-radius: 10px;
-      padding: 10px;
+      width: 140px; height: 100px; object-fit: contain;
+      background: #fff; border-radius: 10px; padding: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
-
     .logo-grid img:hover {
       filter: grayscale(100%) brightness(1.1);
       transform: scale(1.05);
+    }
+
+    /* ---- PRODUCTS SLIDER ---- */
+    .slider-container {
+      position: relative;
+      overflow: hidden;
+      max-width: 1000px;
+      margin: auto;
+      border-radius: 20px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    }
+    .slider {
+      display: flex;
+      transition: transform 1s ease-in-out;
+      width: 100%;
+    }
+    .slider img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .dots span {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s;
+    }
+    .dots .active {
+      background-color: #5A189A;
     }
 
     /* ---- CONTACT ---- */
@@ -176,11 +153,7 @@
       text-align: center;
       padding: 60px 20px;
     }
-
-    .contact a {
-      color: #E0AAFF;
-      text-decoration: underline;
-    }
+    .contact a { color: #E0AAFF; text-decoration: underline; }
 
     /* ---- FOOTER ---- */
     footer {
@@ -195,6 +168,7 @@
       .hero h1 { font-size: 2em; }
       nav ul { display: none; }
       section { padding: 60px 8%; }
+      .slider img { height: 250px; }
     }
   </style>
 </head>
@@ -208,6 +182,7 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#products">Products</a></li>
       <li><a href="#clients">Clients</a></li>
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -238,6 +213,20 @@
       <div class="card"><h3>Commissioning</h3><p>End-to-end setup, testing, and deployment of control systems at client sites.</p></div>
       <div class="card"><h3>Integration & IoT</h3><p>Seamless connectivity between automation, IT, and data analytics platforms.</p></div>
     </div>
+  </section>
+
+  <!-- PRODUCTS SLIDER -->
+  <section id="products">
+    <h2 class="content-center">Our Product Range</h2>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/panel1.jpg?raw=true" alt="Panel 1">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/panel2.jpg?raw=true" alt="Panel 2">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/panel3.jpg?raw=true" alt="Panel 3">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/panel4.jpg?raw=true" alt="Panel 4">
+      </div>
+    </div>
+    <div class="dots" id="dots"></div>
   </section>
 
   <!-- CLIENTS -->
@@ -275,5 +264,33 @@
     © 2025 Venkateshwara Automation & Control Pvt. Ltd. | All Rights Reserved
   </footer>
 
+  <!-- SLIDER SCRIPT -->
+  <script>
+    const slider = document.getElementById('slider');
+    const slides = slider.children;
+    const dotsContainer = document.getElementById('dots');
+    let index = 0;
+
+    for (let i = 0; i < slides.length; i++) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dotsContainer.appendChild(dot);
+    }
+
+    const dots = dotsContainer.children;
+
+    function showSlide(i) {
+      slider.style.transform = `translateX(${-i * 100}%)`;
+      for (let d of dots) d.classList.remove('active');
+      dots[i].classList.add('active');
+    }
+
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    setInterval(nextSlide, 3000); // auto-slide every 3s
+  </script>
 </body>
 </html>

@@ -36,10 +36,10 @@
       z-index: 1000;
     }
 
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.2em;
-      letter-spacing: 1px;
+    nav .logo img {
+      height: 45px;
+      width: auto;
+      filter: brightness(1.2) contrast(1.2);
     }
 
     nav ul {
@@ -140,15 +140,16 @@
     }
 
     .logo-grid img {
-      width: 120px;
+      width: 130px;
       height: 80px;
       object-fit: contain;
-      filter: grayscale(0%);
-      transition: filter 0.3s;
+      filter: brightness(1.1) contrast(1.1);
+      transition: transform 0.3s, filter 0.3s;
     }
 
     .logo-grid img:hover {
-      filter: grayscale(100%);
+      transform: scale(1.05);
+      filter: brightness(1.3) contrast(1.2);
     }
 
     /* ---- CONTACT ---- */
@@ -185,9 +186,8 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="logo">
-  <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo" style="height:45px; width:auto;">
-</div>
-
+      <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo">
+    </div>
 
     <ul>
       <li><a href="#about">About</a></li>

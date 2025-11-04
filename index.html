@@ -147,13 +147,36 @@
     }
 
     /* ---- CONTACT ---- */
-    .contact {
-      background: linear-gradient(90deg, #5A189A, #7B2CBF);
-      color: #fff;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .contact a { color: #E0AAFF; text-decoration: underline; }
+.contact {
+  background: linear-gradient(90deg, #5A189A, #7B2CBF) !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 60px 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #5A189A, #7B2CBF);
+  z-index: -1;
+}
+
+.contact h2, 
+.contact p, 
+.contact a {
+  color: #fff !important;
+}
+.contact a {
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.contact a:hover {
+  color: #E0AAFF;
+}
+
 
     /* ---- FOOTER ---- */
     footer {

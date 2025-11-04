@@ -109,42 +109,65 @@
       transform: scale(1.05);
     }
 
-    /* ---- PRODUCTS SLIDER ---- */
-    .slider-container {
-      position: relative;
-      overflow: hidden;
-      max-width: 1000px;
-      margin: auto;
-      border-radius: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    }
-    .slider {
-      display: flex;
-      transition: transform 1s ease-in-out;
-      width: 100%;
-    }
-    .slider img {
-      width: 100%;
-      height: 450px;
-      object-fit: cover;
-      border-radius: 20px;
-    }
-    .dots {
-      text-align: center;
-      margin-top: 15px;
-    }
-    .dots span {
-      height: 12px;
-      width: 12px;
-      margin: 0 5px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.3s;
-    }
-    .dots .active {
-      background-color: #5A189A;
-    }
+   /* ===== PRODUCTS SLIDER ===== */
+#products {
+  padding: 60px 20px;
+  background: #f7f3fb;
+  text-align: center;
+}
+
+.slider-container {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  background: white;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: contain; /* Show full image without cropping */
+  background: #fff;
+  padding: 20px;
+}
+
+/* Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dots span {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: #b19cd9;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dots span.active {
+  background: #5a189a;
+  transform: scale(1.2);
+}
+
 
     /* ---- CONTACT ---- */
 .contact {
@@ -238,25 +261,21 @@
     </div>
   </section>
 
-  <!-- PRODUCTS SLIDER -->
-  <section id="products">
-    <h2 class="content-center">Our Product Range</h2>
-    <div class="slider-container">
-      <div class="slider" id="slider">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/%2320210714_105455.jpg?raw=true" alt="Panel 1">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/%2320240406_165546.jpg?raw=true" alt="Panel 2">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/15.High%20Power%20VFD%E2%80%99s%20Ranging%20From%20360KW%20to%201200KW%20For%20Schneider..jpg?raw=true" alt="Panel 3">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 4">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/mcc_adani.png?raw=true" alt="Panel 5">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 6">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 7">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 8">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 9">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 10">
-      </div>
+<!-- PRODUCTS SLIDER -->
+<section id="products">
+  <h2 class="content-center">Our Product Range</h2>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/%2320210714_105455.jpg?raw=true" alt="Panel 1"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/%2320240406_165546.jpg?raw=true" alt="Panel 2"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/15.High%20Power%20VFD%E2%80%99s%20Ranging%20From%20360KW%20to%201200KW%20For%20Schneider..jpg?raw=true" alt="Panel 3"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/APM_Panel.png?raw=true" alt="Panel 4"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/mcc_adani.png?raw=true" alt="Panel 5"></div>
     </div>
-    <div class="dots" id="dots"></div>
-  </section>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
 
   <!-- CLIENTS -->
   <section id="clients">
@@ -295,31 +314,39 @@
 
   <!-- SLIDER SCRIPT -->
   <script>
-    const slider = document.getElementById('slider');
-    const slides = slider.children;
-    const dotsContainer = document.getElementById('dots');
-    let index = 0;
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+let index = 0;
 
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      dotsContainer.appendChild(dot);
-    }
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
 
-    const dots = dotsContainer.children;
+const dots = dotsContainer.querySelectorAll('span');
 
-    function showSlide(i) {
-      slider.style.transform = `translateX(${-i * 100}%)`;
-      for (let d of dots) d.classList.remove('active');
-      dots[i].classList.add('active');
-    }
+function updateSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
 
-    function nextSlide() {
-      index = (index + 1) % slides.length;
-      showSlide(index);
-    }
+function goToSlide(i) {
+  index = i;
+  updateSlider();
+}
 
-    setInterval(nextSlide, 3000); // auto-slide every 3s
-  </script>
+function autoSlide() {
+  index = (index + 1) % slides.length;
+  updateSlider();
+}
+
+updateSlider();
+setInterval(autoSlide, 4000); // 4 seconds
+</script>
+
 </body>
 </html>

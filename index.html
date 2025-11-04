@@ -10,7 +10,7 @@
       margin: 0;
       font-family: "Segoe UI", sans-serif;
       color: #333;
-      background: #fff;
+      background: #f8f7fc;
       scroll-behavior: smooth;
     }
 
@@ -25,7 +25,7 @@
 
     /* ---- NAVIGATION ---- */
     nav {
-      background: #3C096C;
+      background: linear-gradient(90deg, #3C096C, #5A189A);
       color: #fff;
       display: flex;
       justify-content: space-between;
@@ -34,12 +34,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.2em;
-      letter-spacing: 1px;
+    nav .logo img {
+      height: 45px;
+      width: auto;
     }
 
     nav ul {
@@ -62,7 +62,7 @@
 
     /* ---- HERO SECTION ---- */
     .hero {
-      height: 30vh;
+      height: 60vh;
       background: 
         linear-gradient(rgba(60, 9, 108, 0.6), rgba(90, 24, 154, 0.6)),
         url('https://github.com/VACPL/vacpl.github.io/blob/main/Panel.jpg?raw=true') center/cover no-repeat;
@@ -73,11 +73,13 @@
       text-align: center;
       color: #fff;
       padding: 0 10%;
+      background-attachment: fixed;
     }
 
     .hero h1 {
       font-size: 3em;
       margin-bottom: 0.4em;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
     }
 
     .hero p {
@@ -93,6 +95,7 @@
       border-radius: 25px;
       font-weight: 600;
       transition: 0.3s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
 
     .cta:hover {
@@ -103,6 +106,15 @@
     /* ---- SECTIONS ---- */
     section {
       padding: 80px 12%;
+      position: relative;
+    }
+
+    section:nth-child(even) {
+      background: linear-gradient(180deg, #f8f7fc 0%, #ede9f7 100%);
+    }
+
+    section:nth-child(odd) {
+      background: linear-gradient(180deg, #ffffff 0%, #f4edfb 100%);
     }
 
     .content-center {
@@ -118,19 +130,20 @@
     }
 
     .card {
-      background: #f9f9ff;
+      background: #fff;
       border-radius: 15px;
       padding: 25px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.15);
     }
 
-    /* ---- CLIENT LOGOS ---- */
+    /* ---- LOGO GRIDS ---- */
     .logo-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -144,19 +157,20 @@
       height: 80px;
       object-fit: contain;
       filter: grayscale(0%);
-      transition: filter 0.3s;
+      transition: all 0.3s ease;
     }
 
     .logo-grid img:hover {
-      filter: grayscale(100%);
+      filter: grayscale(100%) brightness(1.2);
+      transform: scale(1.05);
     }
 
     /* ---- CONTACT ---- */
     .contact {
-      background: #5A189A;
+      background: linear-gradient(90deg, #5A189A, #7B2CBF);
       color: #fff;
       text-align: center;
-      padding: 50px 20px;
+      padding: 60px 20px;
     }
 
     .contact a {
@@ -174,7 +188,7 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2em; }
+      .hero h1 { font-size: 2em; }
       nav ul { display: none; }
       section { padding: 60px 8%; }
     }
@@ -185,14 +199,13 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="logo">
-  <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo" style="height:45px; width:auto;">
-</div>
-
-
+      <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo">
+    </div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#clients">Clients</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -234,6 +247,17 @@
     </div>
   </section>
 
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <h2 class="content-center">Certifications & Accreditations</h2>
+    <div class="logo-grid">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/ISO_9001-2015.svg" alt="ISO 9001">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/CE_Mark.svg" alt="CE Mark">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/UL_Mark.svg" alt="UL Certification">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/BIS_logo.svg" alt="BIS Certification">
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
@@ -250,4 +274,4 @@
   </footer>
 
 </body>
-</html> cross check logo color look faint
+</html>

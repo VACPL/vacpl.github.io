@@ -63,33 +63,16 @@
       transform: translateX(-50%);
     }
     
+    h3 { 
+      color: var(--primary); 
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+    
     a { 
       text-decoration: none; 
       color: var(--primary);
       transition: var(--transition);
-    }
-    
-    section {
-      padding: 80px 12%;
-      position: relative;
-    }
-    
-    section:nth-child(even) {
-      background: linear-gradient(180deg, var(--light) 0%, #ede9f7 100%);
-    }
-    
-    section:nth-child(odd) {
-      background: linear-gradient(180deg, var(--white) 0%, #f4edfb 100%);
-    }
-    
-    .content-center {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     /* ---- NAVIGATION ---- */
@@ -211,6 +194,25 @@
       color: var(--primary-dark); 
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    /* ---- SECTION BASE ---- */
+    section {
+      padding: 80px 12%;
+      position: relative;
+    }
+    
+    section:nth-child(even) {
+      background: linear-gradient(180deg, var(--light) 0%, #ede9f7 100%);
+    }
+    
+    section:nth-child(odd) {
+      background: linear-gradient(180deg, var(--white) 0%, #f4edfb 100%);
+    }
+    
+    .content-center {
+      text-align: center;
+      margin-bottom: 40px;
     }
 
     /* ---- CARD GRID ---- */
@@ -347,6 +349,13 @@
     
     .slide:hover .slide-caption {
       transform: translateY(0);
+    }
+    
+    /* Hover zoom for desktop only */
+    @media (hover: hover) {
+      .slide img:hover {
+        transform: scale(1.02);
+      }
     }
     
     /* Dots */
@@ -598,6 +607,7 @@
       
       .slide img {
         height: 300px;
+        object-fit: cover;
       }
       
       .slider-nav {
@@ -618,6 +628,16 @@
         flex-direction: column;
         gap: 30px;
       }
+      
+      .logo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+      }
+      
+      .logo-grid img {
+        width: 120px;
+        height: 80px;
+      }
     }
     
     @media (max-width: 480px) {
@@ -635,24 +655,24 @@
       
       .logo-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        gap: 20px;
+        gap: 15px;
       }
       
       .logo-grid img {
         width: 100px;
-        height: 80px;
+        height: 70px;
       }
     }
-  </style>
+</style>
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav id="navbar">
+  <nav>
     <div class="logo">
       <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo">
     </div>
-    <ul id="nav-menu">
+    <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#products">Products</a></li>
@@ -660,7 +680,6 @@
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="mobile-menu-btn" id="mobile-menu-toggle">☰</button>
   </nav>
 
   <!-- HERO -->
@@ -672,318 +691,197 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <div class="container">
-      <div class="content-center fade-in">
-        <h2>About VACPL</h2>
-        <p><strong>VACPL</strong> is an ISO 9001:2008 certified company based in Pune, Maharashtra. Since 2001, we have delivered world-class <strong>Electrical Panel Manufacturing</strong> and <strong>Automation Solutions</strong> with innovation and precision.</p>
-      </div>
+    <div class="content-center">
+      <h2>About VACPL</h2>
+      <p><strong>VACPL</strong> is an ISO 9001:2008 certified company based in Pune, Maharashtra. Since 2001, we have delivered world-class <strong>Electrical Panel Manufacturing</strong> and <strong>Automation Solutions</strong> with innovation and precision.</p>
     </div>
   </section>
 
-  <!-- BROCHURE -->
-  <section id="brochure">
-    <div class="container">
-      <h2 class="content-center fade-in">Company Brochure</h2>
-      <div class="brochure-wrapper fade-in">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0001.jpg" class="brochure-img" alt="Brochure Page 1">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0002.jpg" class="brochure-img" alt="Brochure Page 2">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0003.jpg" class="brochure-img" alt="Brochure Page 3">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0004.jpg" class="brochure-img" alt="Brochure Page 4">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0005.jpg" class="brochure-img" alt="Brochure Page 5">
-        <img src="VACPL BROCHURE 06_R02 - Copy_page-0006.jpg" class="brochure-img" alt="Brochure Page 6">
-      </div>
-    </div>
-  </section>
+<section id="brochure">
+  <h2 class="content-center">Company Brochure</h2>
+
+  <div class="brochure-wrapper">
+
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0001.jpg" class="brochure-img" alt="Brochure Page 1">
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0002.jpg" class="brochure-img" alt="Brochure Page 2">
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0003.jpg" class="brochure-img" alt="Brochure Page 3">
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0004.jpg" class="brochure-img" alt="Brochure Page 4">
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0005.jpg" class="brochure-img" alt="Brochure Page 5">
+    <img src="VACPL BROCHURE 06_R02 - Copy_page-0006.jpg" class="brochure-img" alt="Brochure Page 6">
+
+  </div>
+</section>
+
 
   <!-- SERVICES -->
-  <section id="services">
-    <div class="container">
-      <h2 class="content-center fade-in">Our Core Services</h2>
-      <div class="grid">
-        <div class="card fade-in">
-          <h3>Boiler Automation Systems</h3>
-          <p>Design and commissioning of complete boiler control panels — including feedwater, combustion, pressure, and temperature control systems for efficient and safe operation.</p>
-          <ul>
-            <li>Oil-Fired Boilers</li>
-            <li>Gas-Fired Boilers</li>
-            <li>Solid Fuel Boilers</li>
-            <li>Electric Heater Boilers</li>
-            <li>Dual Fuel Boilers</li>
-            <li>Waste Heat Recovery Boilers (WHRB)</li>
-          </ul>
-        </div>
-        
-        <div class="card fade-in">
-          <h3>Panel Manufacturing</h3>
-          <p>Designing and manufacturing a wide range of high-quality electrical control panels up to 6000A, built for performance and reliability.</p>
-          <ul>
-            <li>Power Control Centers (PCC)</li>
-            <li>Motor Control Centers (MCC)</li>
-            <li>Automatic Power Factor Control Panels (APFC)</li>
-            <li>PLC & Automation Panels</li>
-            <li>Distribution Boards (DB / SMDB)</li>
-            <li>VFD & Soft Starter Panels</li>
-            <li>Synchronization & AMF Panels</li>
-            <li>Feeder Pillars and Lighting Panels</li>
-            <li>Control & Relay Panels</li>
-          </ul>
-        </div>
+ <section id="services">
+  <h2 class="content-center">Our Core Services</h2>
+  <div class="grid">
 
-        <div class="card fade-in">
-          <h3>Automation Engineering</h3>
-          <p>PLC, SCADA, HMI, and IoT-based automation systems developed for precision, reliability, and real-time control.</p>
-        </div>
+    <div class="card">
+  <h3>Boiler Automation Systems</h3>
+  <p>Design and commissioning of complete boiler control panels — including feedwater, combustion, pressure, and temperature control systems for efficient and safe operation.</p>
+  <ul style="margin-top:10px; text-align:left; font-size:14px; line-height:1.6;">
+    <li>Oil-Fired Boilers</li>
+    <li>Gas-Fired Boilers</li>
+    <li>Solid Fuel Boilers</li>
+    <li>Electric Heater Boilers</li>
+    <li>Dual Fuel Boilers</li>
+    <li>Waste Heat Recovery Boilers (WHRB)</li>
+  </ul>
+</div>
 
-        <div class="card fade-in">
-          <h3>Commissioning</h3>
-          <p>End-to-end setup, testing, and commissioning of control systems with detailed documentation and client training.</p>
-        </div>
-
-        <div class="card fade-in">
-          <h3>Integration & IoT</h3>
-          <p>Seamless connectivity between automation, IT, and cloud-based analytics for Industry 4.0-ready solutions.</p>
-        </div>
-      </div>
+    
+    <!-- Panel Manufacturing -->
+    <div class="card">
+      <h3>Panel Manufacturing</h3>
+      <p>Designing and manufacturing a wide range of high-quality electrical control panels up to 6000A, built for performance and reliability.</p>
+      <ul style="margin-top:10px; text-align:left; font-size:14px; line-height:1.6;">
+        <li>Power Control Centers (PCC)</li>
+        <li>Motor Control Centers (MCC)</li>
+        <li>Automatic Power Factor Control Panels (APFC)</li>
+        <li>PLC & Automation Panels</li>
+        <li>Distribution Boards (DB / SMDB)</li>
+        <li>VFD & Soft Starter Panels</li>
+        <li>Synchronization & AMF Panels</li>
+        <li>Feeder Pillars and Lighting Panels</li>
+        <li>Control & Relay Panels</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- PRODUCTS SLIDER -->
-  <section id="products">
-    <div class="container">
-      <h2 class="content-center fade-in">Our Product Range</h2>
-      <div class="slider-container">
-        <div class="slider" id="slider">
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide9.JPG?raw=true" alt="Panel 1">
-            <div class="slide-caption">Power Control Center</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide7.JPG?raw=true" alt="Panel 2">
-            <div class="slide-caption">Motor Control Center</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide5.JPG?raw=true" alt="Panel 3">
-            <div class="slide-caption">APFC Panel</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide46.JPG?raw=true" alt="Panel 4">
-            <div class="slide-caption">PLC Automation Panel</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide41.JPG?raw=true" alt="Panel 5">
-            <div class="slide-caption">VFD Control Panel</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide38.JPG?raw=true" alt="Panel 6">
-            <div class="slide-caption">Synchronization Panel</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide32.JPG?raw=true" alt="Panel 7">
-            <div class="slide-caption">Distribution Board</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide22.JPG?raw=true" alt="Panel 8">
-            <div class="slide-caption">Control Relay Panel</div>
-          </div>
-          <div class="slide">
-            <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide12.JPG?raw=true" alt="Panel 9">
-            <div class="slide-caption">Feeder Pillar</div>
-          </div>
-        </div>
-        <button class="slider-nav slider-prev" id="slider-prev">❮</button>
-        <button class="slider-nav slider-next" id="slider-next">❯</button>
-      </div>
-      <div class="dots" id="dots"></div>
+    <!-- Automation Engineering -->
+    <div class="card">
+      <h3>Automation Engineering</h3>
+      <p>PLC, SCADA, HMI, and IoT-based automation systems developed for precision, reliability, and real-time control.</p>
     </div>
-  </section>
+
+    <!-- Commissioning -->
+    <div class="card">
+      <h3>Commissioning</h3>
+      <p>End-to-end setup, testing, and commissioning of control systems with detailed documentation and client training.</p>
+    </div>
+
+    <!-- Integration & IoT -->
+    <div class="card">
+      <h3>Integration & IoT</h3>
+      <p>Seamless connectivity between automation, IT, and cloud-based analytics for Industry 4.0-ready solutions.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- PRODUCTS SLIDER -->
+<section id="products">
+  <h2 class="content-center">Our Product Range</h2>
+  <div class="slider-container">
+    <div class="slider" id="slider">
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide9.JPG?raw=true" alt="Panel 1"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide7.JPG?raw=true" alt="Panel 2"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide5.JPG?raw=true" alt="Panel 3"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide46.JPG?raw=true" alt="Panel 4"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide41.JPG?raw=true" alt="Panel 5"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide38.JPG?raw=true" alt="Panel 6"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide32.JPG?raw=true" alt="Panel 7"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide22.JPG?raw=true" alt="Panel 8"></div>
+      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide12.JPG?raw=true" alt="Panel 9"></div>
+    </div>
+  </div>
+  <div class="dots" id="dots"></div>
+</section>
+
+
 
   <!-- CLIENTS -->
   <section id="clients">
-    <div class="container">
-      <h2 class="content-center fade-in">Our Clients</h2>
-      <div class="logo-grid fade-in">
-        <img src="https://www.thermaxglobal.com/wp-content/themes/thermax/img/common_svg/logo-red.svg" alt="Thermax">
-        <img src="https://www.adani.com/-/media/project/adaniv1/logo/adani-logo.svg" alt="Adani">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/TetraPak-Logo_EN.svg/2048px-TetraPak-Logo_EN.svg.png" alt="Tetra Pak">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0vIX33cGarI_fcHp1mu6TGOXmrTAfUlsEYA&s" alt="aF">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/ITC_Limited_Logo.svg" alt="ITC">
-        <img src="https://brandeps.com/logo-download/W/Wilmar-International-logo-01.png" alt="Wilmar">
-        <img src="https://www.alfalaval.com/globalassets/images/placeholders/alfa-laval-logo.png" alt="alfa-laval">
-        <img src="https://etimg.etb2bimg.com/photo/87586804.cms" alt="ACG">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/NTPC_Logo.svg/2560px-NTPC_Logo.svg.png" alt="NTPC">
-        <img src="https://www.davidponzo.com/wp-content/uploads/2023/02/INDORAMA-LOGO_RGB-1030x277.png" alt="Indorama">
-        <img src="https://images.seeklogo.com/logo-png/10/1/pidilite-logo-png_seeklogo-108745.png" alt="Pidilite">
-        <img src="https://e7.pngegg.com/pngimages/849/146/png-clipart-cargill-gmbh-logo-cargill-deutschland-gmbh-cargill-holding-germany-gmbh-cargill-logo-text-trademark.png" alt="Cargill">
-        <img src="https://www.supremeagro.com/wp-content/uploads/2024/07/uttam-logo-1.png" alt="Uttam">
-      </div>
+    <h2 class="content-center">Our Clients</h2>
+    <div class="logo-grid">
+      <img src="https://www.thermaxglobal.com/wp-content/themes/thermax/img/common_svg/logo-red.svg" alt="Thermax">
+      <img src="https://www.adani.com/-/media/project/adaniv1/logo/adani-logo.svg" alt="Adani">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/TetraPak-Logo_EN.svg/2048px-TetraPak-Logo_EN.svg.png" alt="Tetra Pak">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0vIX33cGarI_fcHp1mu6TGOXmrTAfUlsEYA&s" alt="aF">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/ITC_Limited_Logo.svg" alt="ITC">
+      <img src="https://brandeps.com/logo-download/W/Wilmar-International-logo-01.png" alt="Wilmar">
+      <img src="https://www.alfalaval.com/globalassets/images/placeholders/alfa-laval-logo.png" alt="alfa-laval">
+      <img src="https://etimg.etb2bimg.com/photo/87586804.cms" alt="ACG">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/NTPC_Logo.svg/2560px-NTPC_Logo.svg.png" alt="ACG">
+      <img src="https://www.davidponzo.com/wp-content/uploads/2023/02/INDORAMA-LOGO_RGB-1030x277.png" alt="ACG">
+      <img src="https://images.seeklogo.com/logo-png/10/1/pidilite-logo-png_seeklogo-108745.png" alt="ACG">
+      <img src="https://e7.pngegg.com/pngimages/849/146/png-clipart-cargill-gmbh-logo-cargill-deutschland-gmbh-cargill-holding-germany-gmbh-cargill-logo-text-trademark.png" alt="ACG">
+      <img src="https://www.supremeagro.com/wp-content/uploads/2024/07/uttam-logo-1.png" alt="ACG">
     </div>
   </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certifications">
-    <div class="container">
-      <h2 class="content-center fade-in">Certifications & Accreditations</h2>
-      <div class="logo-grid fade-in">
-        <img src="https://www.pngfind.com/pngs/m/377-3775466_iso-iso-png-iso-9001-2008-logo-png.png" alt="ISO 9001">
-        <img src="https://steelrohr.com/wp-content/uploads/2025/04/SIEPAN_Elite_Partner_Emblem.jpg" alt="SIEPAN Elite Partner">
-        <img src="https://tradesnest.com/wp-content/uploads/2024/01/CE-mark-1024x1024.png" alt="CE-mark">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ72AKQFzBpvyHmePg6Cf-lkKNWUmSOarQlA&s" alt="UL">
-        <img src="https://greenearthproducts.eu/wp-content/uploads/2023/03/combi-sedex-smeta.jpg" alt="sedex-smeta">
-        <img src="https://drives-solutions.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-26-at-9.46.48-AM.jpeg" alt="apm">
-      </div>
+    <h2 class="content-center">Certifications & Accreditations</h2>
+    <div class="logo-grid">
+      <img src="https://www.pngfind.com/pngs/m/377-3775466_iso-iso-png-iso-9001-2008-logo-png.png" alt="ISO 9001">
+      <img src="https://steelrohr.com/wp-content/uploads/2025/04/SIEPAN_Elite_Partner_Emblem.jpg" alt="SIEPAN Elite Partner">
+      <img src="https://tradesnest.com/wp-content/uploads/2024/01/CE-mark-1024x1024.png" alt="CE-mark">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ72AKQFzBpvyHmePg6Cf-lkKNWUmSOarQlA&s" alt="UL">
+      <img src="https://greenearthproducts.eu/wp-content/uploads/2023/03/combi-sedex-smeta.jpg" alt="sedex-smeta">
+      <img src="https://drives-solutions.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-26-at-9.46.48-AM.jpeg" alt="apm">
+    
+      
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
-    <div class="container">
-      <h2 class="fade-in">Contact Us</h2>
-      <div class="contact-info fade-in">
-        <div class="contact-item">
-          <div class="contact-icon">📍</div>
-          <h3>Head Office</h3>
-          <p>Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">📞</div>
-          <h3>Phone</h3>
-          <p>+91-9422311279<br>+91-9011010009</p>
-        </div>
-        <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <h3>Email</h3>
-          <p>
-            <a href="mailto:info@vacpl.net">info@vacpl.net</a><br>
-            <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a>
-          </p>
-        </div>
-      </div>
-    </div>
+    <h2>Contact Us</h2>
+    <p><strong>Head Office:</strong><br>
+      Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
+    <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009<br>
+      <strong>Email:</strong> 
+      <a href="mailto:info@vacpl.net">info@vacpl.net</a> | 
+      <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a></p>
   </section>
 
   <footer>
     © 2025 Venkateshwara Automation & Control Pvt. Ltd. | All Rights Reserved
   </footer>
 
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="back-to-top">↑</button>
-
-  <!-- SCRIPTS -->
+  <!-- SLIDER SCRIPT -->
   <script>
-    // Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.getElementById('nav-menu');
-    
-    mobileMenuToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-    });
-    
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('#nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-      });
-    });
-    
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-      
-      // Back to top button visibility
-      const backToTop = document.getElementById('back-to-top');
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
-    
-    // Back to top functionality
-    document.getElementById('back-to-top').addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Scroll animations
-    const fadeElements = document.querySelectorAll('.fade-in');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    
-    fadeElements.forEach(el => {
-      observer.observe(el);
-    });
-    
-    // Products Slider
-    const slider = document.getElementById('slider');
-    const slides = document.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('dots');
-    const prevBtn = document.getElementById('slider-prev');
-    const nextBtn = document.getElementById('slider-next');
-    let index = 0;
-    
-    // Create dots
-    slides.forEach((_, i) => {
-      const dot = document.createElement('span');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    });
-    
-    const dots = dotsContainer.querySelectorAll('span');
-    
-    function updateSlider() {
-      slider.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-    }
-    
-    function goToSlide(i) {
-      index = i;
-      updateSlider();
-    }
-    
-    function nextSlide() {
-      index = (index + 1) % slides.length;
-      updateSlider();
-    }
-    
-    function prevSlide() {
-      index = (index - 1 + slides.length) % slides.length;
-      updateSlider();
-    }
-    
-    // Event listeners for slider navigation
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
-    // Auto slide
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Pause auto slide on hover
-    slider.parentElement.addEventListener('mouseenter', () => {
-      clearInterval(slideInterval);
-    });
-    
-    slider.parentElement.addEventListener('mouseleave', () => {
-      slideInterval = setInterval(nextSlide, 5000);
-    });
-    
-    updateSlider();
-  </script>
+const slider = document.getElementById('slider');
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+let index = 0;
+
+// Create dots
+slides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+});
+
+const dots = dotsContainer.querySelectorAll('span');
+
+function updateSlider() {
+  slider.style.transform = `translateX(-${index * 100}%)`;
+  dots.forEach(dot => dot.classList.remove('active'));
+  dots[index].classList.add('active');
+}
+
+function goToSlide(i) {
+  index = i;
+  updateSlider();
+}
+
+function autoSlide() {
+  index = (index + 1) % slides.length;
+  updateSlider();
+}
+
+updateSlider();
+setInterval(autoSlide, 4000); // 4 seconds
+
+
+</script>
+
+
+
+
 </body>
 </html>

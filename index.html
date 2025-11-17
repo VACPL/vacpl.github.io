@@ -296,87 +296,122 @@
       transform: scale(1.05);
     }
 
-   /* ===== PRODUCTS SLIDER ===== */
-#products {
-  padding: 80px 12%;
-  background: linear-gradient(180deg, #f8f7fc 0%, #ede9f7 100%);
-  text-align: center;
-}
-
-.slider-container {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-}
-
-.slider {
-  display: flex;
-  transition: transform 0.7s ease-in-out;
-}
-
-.slide {
-  min-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.slide img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 0;
-  transition: transform 0.4s ease;
-}
-
-/* Hover zoom for desktop only */
-@media (hover: hover) {
-  .slide img:hover {
-    transform: scale(1.02);
-  }
-}
-
-/* Dots */
-.dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-
-.dots span {
-  height: 12px;
-  width: 12px;
-  margin: 0 5px;
-  background: #b19cd9;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.dots span.active {
-  background: #5a189a;
-  transform: scale(1.3);
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-@media (max-width: 768px) {
-  #products {
-    padding: 60px 5%;
-  }
-
-  .slide img {
-    height: 300px;              /* Reduce height for mobile */
-    object-fit: fill;           /* <-- THIS stretches the image fully */
-    border-radius: 0;
-  }
-}
-
-
+    /* ===== PRODUCTS SLIDER ===== */
+    #products {
+      padding: 80px 12%;
+      background: linear-gradient(180deg, var(--light) 0%, #ede9f7 100%);
+      text-align: center;
+    }
     
+    .slider-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--white);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .slider {
+      display: flex;
+      transition: transform 0.7s ease-in-out;
+    }
+    
+    .slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 500px;
+      object-fit: contain;
+      border-radius: 0;
+      background-color: #f5f5f5;
+      transition: transform 0.4s ease;
+    }
+    
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(90, 24, 154, 0.8);
+      color: var(--white);
+      padding: 15px;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .slide:hover .slide-caption {
+      transform: translateY(0);
+    }
+    
+    /* Hover zoom for desktop only */
+    @media (hover: hover) {
+      .slide img:hover {
+        transform: scale(1.02);
+      }
+    }
+    
+    /* Dots */
+    .dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .dots span {
+      height: 12px;
+      width: 12px;
+      background: #b19cd9;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .dots span.active {
+      background: var(--primary);
+      transform: scale(1.3);
+    }
+    
+    /* Slider Navigation Arrows */
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.7);
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--primary);
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 10;
+    }
+    
+    .slider-nav:hover {
+      background: var(--white);
+    }
+    
+    .slider-prev {
+      left: 20px;
+    }
+    
+    .slider-next {
+      right: 20px;
+    }
 
     /* ---- CONTACT ---- */
     .contact {
@@ -571,15 +606,31 @@
         padding: 50px 5%;
       }
       
+      /* MOBILE SLIDER FIX */
+      .slider-container {
+        border-radius: 15px;
+        margin: 0 10px;
+      }
+      
       .slide img {
         height: 300px;
-        object-fit: cover;
+        object-fit: contain;
+        background-color: #f5f5f5;
+        padding: 10px;
       }
       
       .slider-nav {
         width: 40px;
         height: 40px;
         font-size: 1.2rem;
+      }
+      
+      .slider-prev {
+        left: 10px;
+      }
+      
+      .slider-next {
+        right: 10px;
       }
       
       .brochure-wrapper {
@@ -619,6 +670,19 @@
         grid-template-columns: 1fr;
       }
       
+      /* SMALL MOBILE SLIDER FIX */
+      .slide img {
+        height: 250px;
+        object-fit: contain;
+        padding: 5px;
+      }
+      
+      .slider-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+      }
+      
       .logo-grid {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 15px;
@@ -629,16 +693,22 @@
         height: 70px;
       }
     }
-</style>
+    
+    @media (max-width: 360px) {
+      .slide img {
+        height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <!-- NAVIGATION -->
-  <nav>
+  <nav id="navbar">
     <div class="logo">
       <img src="https://vacplindia.com/images/logo.png" alt="VACPL Logo">
     </div>
-    <ul>
+    <ul id="nav-menu">
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#products">Products</a></li>
@@ -646,6 +716,7 @@
       <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="mobile-menu-btn" id="mobile-menu-toggle">☰</button>
   </nav>
 
   <!-- HERO -->
@@ -663,102 +734,122 @@
     </div>
   </section>
 
-   <!-- SERVICES -->
- <section id="services">
-  <h2 class="content-center">Our Core Services</h2>
-  <div class="grid">
+  <!-- SERVICES -->
+  <section id="services">
+    <h2 class="content-center">Our Core Services</h2>
+    <div class="grid">
 
-    <div class="card">
-  <h3>Boiler Automation Systems</h3>
-  <p>Design and commissioning of complete boiler control panels — including feedwater, combustion, pressure, and temperature control systems for efficient and safe operation.</p>
-  <ul style="margin-top:10px; text-align:left; font-size:14px; line-height:1.6;">
-    <li>Oil-Fired Boilers</li>
-    <li>Gas-Fired Boilers</li>
-    <li>Solid Fuel Boilers</li>
-    <li>Electric Heater Boilers</li>
-    <li>Dual Fuel Boilers</li>
-    <li>Waste Heat Recovery Boilers (WHRB)</li>
-  </ul>
-</div>
+      <div class="card">
+        <h3>Boiler Automation Systems</h3>
+        <p>Design and commissioning of complete boiler control panels — including feedwater, combustion, pressure, and temperature control systems for efficient and safe operation.</p>
+        <ul>
+          <li>Oil-Fired Boilers</li>
+          <li>Gas-Fired Boilers</li>
+          <li>Solid Fuel Boilers</li>
+          <li>Electric Heater Boilers</li>
+          <li>Dual Fuel Boilers</li>
+          <li>Waste Heat Recovery Boilers (WHRB)</li>
+        </ul>
+      </div>
+      
+      <!-- Panel Manufacturing -->
+      <div class="card">
+        <h3>Panel Manufacturing</h3>
+        <p>Designing and manufacturing a wide range of high-quality electrical control panels up to 6000A, built for performance and reliability.</p>
+        <ul>
+          <li>Power Control Centers (PCC)</li>
+          <li>Motor Control Centers (MCC)</li>
+          <li>Automatic Power Factor Control Panels (APFC)</li>
+          <li>PLC & Automation Panels</li>
+          <li>Distribution Boards (DB / SMDB)</li>
+          <li>VFD & Soft Starter Panels</li>
+          <li>Synchronization & AMF Panels</li>
+          <li>Feeder Pillars and Lighting Panels</li>
+          <li>Control & Relay Panels</li>
+        </ul>
+      </div>
 
-<section id="brochure">
-  <h2 class="content-center">Company Brochure</h2>
+      <!-- Automation Engineering -->
+      <div class="card">
+        <h3>Automation Engineering</h3>
+        <p>PLC, SCADA, HMI, and IoT-based automation systems developed for precision, reliability, and real-time control.</p>
+      </div>
 
-  <div class="brochure-wrapper">
+      <!-- Commissioning -->
+      <div class="card">
+        <h3>Commissioning</h3>
+        <p>End-to-end setup, testing, and commissioning of control systems with detailed documentation and client training.</p>
+      </div>
 
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0001.jpg" class="brochure-img" alt="Brochure Page 1">
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0002.jpg" class="brochure-img" alt="Brochure Page 2">
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0003.jpg" class="brochure-img" alt="Brochure Page 3">
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0004.jpg" class="brochure-img" alt="Brochure Page 4">
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0005.jpg" class="brochure-img" alt="Brochure Page 5">
-    <img src="VACPL BROCHURE 06_R02 - Copy_page-0006.jpg" class="brochure-img" alt="Brochure Page 6">
+      <!-- Integration & IoT -->
+      <div class="card">
+        <h3>Integration & IoT</h3>
+        <p>Seamless connectivity between automation, IT, and cloud-based analytics for Industry 4.0-ready solutions.</p>
+      </div>
 
-  </div>
-</section>
-
-
- 
-
-    
-    <!-- Panel Manufacturing -->
-    <div class="card">
-      <h3>Panel Manufacturing</h3>
-      <p>Designing and manufacturing a wide range of high-quality electrical control panels up to 6000A, built for performance and reliability.</p>
-      <ul style="margin-top:10px; text-align:left; font-size:14px; line-height:1.6;">
-        <li>Power Control Centers (PCC)</li>
-        <li>Motor Control Centers (MCC)</li>
-        <li>Automatic Power Factor Control Panels (APFC)</li>
-        <li>PLC & Automation Panels</li>
-        <li>Distribution Boards (DB / SMDB)</li>
-        <li>VFD & Soft Starter Panels</li>
-        <li>Synchronization & AMF Panels</li>
-        <li>Feeder Pillars and Lighting Panels</li>
-        <li>Control & Relay Panels</li>
-      </ul>
     </div>
+  </section>
 
-    <!-- Automation Engineering -->
-    <div class="card">
-      <h3>Automation Engineering</h3>
-      <p>PLC, SCADA, HMI, and IoT-based automation systems developed for precision, reliability, and real-time control.</p>
+  <!-- BROCHURE -->
+  <section id="brochure">
+    <h2 class="content-center">Company Brochure</h2>
+    <div class="brochure-wrapper">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0001.jpg" class="brochure-img" alt="Brochure Page 1">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0002.jpg" class="brochure-img" alt="Brochure Page 2">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0003.jpg" class="brochure-img" alt="Brochure Page 3">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0004.jpg" class="brochure-img" alt="Brochure Page 4">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0005.jpg" class="brochure-img" alt="Brochure Page 5">
+      <img src="VACPL BROCHURE 06_R02 - Copy_page-0006.jpg" class="brochure-img" alt="Brochure Page 6">
     </div>
+  </section>
 
-    <!-- Commissioning -->
-    <div class="card">
-      <h3>Commissioning</h3>
-      <p>End-to-end setup, testing, and commissioning of control systems with detailed documentation and client training.</p>
+  <!-- PRODUCTS SLIDER -->
+  <section id="products">
+    <h2 class="content-center">Our Product Range</h2>
+    <div class="slider-container">
+      <div class="slider" id="slider">
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide9.JPG?raw=true" alt="Power Control Center">
+          <div class="slide-caption">Power Control Center</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide7.JPG?raw=true" alt="Motor Control Center">
+          <div class="slide-caption">Motor Control Center</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide5.JPG?raw=true" alt="APFC Panel">
+          <div class="slide-caption">APFC Panel</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide46.JPG?raw=true" alt="PLC Automation Panel">
+          <div class="slide-caption">PLC Automation Panel</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide41.JPG?raw=true" alt="VFD Control Panel">
+          <div class="slide-caption">VFD Control Panel</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide38.JPG?raw=true" alt="Synchronization Panel">
+          <div class="slide-caption">Synchronization Panel</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide32.JPG?raw=true" alt="Distribution Board">
+          <div class="slide-caption">Distribution Board</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide22.JPG?raw=true" alt="Control Relay Panel">
+          <div class="slide-caption">Control Relay Panel</div>
+        </div>
+        <div class="slide">
+          <img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide12.JPG?raw=true" alt="Feeder Pillar">
+          <div class="slide-caption">Feeder Pillar</div>
+        </div>
+      </div>
+      <button class="slider-nav slider-prev" id="slider-prev">❮</button>
+      <button class="slider-nav slider-next" id="slider-next">❯</button>
     </div>
-
-    <!-- Integration & IoT -->
-    <div class="card">
-      <h3>Integration & IoT</h3>
-      <p>Seamless connectivity between automation, IT, and cloud-based analytics for Industry 4.0-ready solutions.</p>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- PRODUCTS SLIDER -->
-<section id="products">
-  <h2 class="content-center">Our Product Range</h2>
-  <div class="slider-container">
-    <div class="slider" id="slider">
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide9.JPG?raw=true" alt="Panel 1"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide7.JPG?raw=true" alt="Panel 2"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide5.JPG?raw=true" alt="Panel 3"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide46.JPG?raw=true" alt="Panel 4"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide41.JPG?raw=true" alt="Panel 5"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide38.JPG?raw=true" alt="Panel 6"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide32.JPG?raw=true" alt="Panel 7"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide22.JPG?raw=true" alt="Panel 8"></div>
-      <div class="slide"><img src="https://github.com/VACPL/vacpl.github.io/blob/main/Slide12.JPG?raw=true" alt="Panel 9"></div>
-    </div>
-  </div>
-  <div class="dots" id="dots"></div>
-</section>
-
-
+    <div class="dots" id="dots"></div>
+  </section>
 
   <!-- CLIENTS -->
   <section id="clients">
@@ -772,11 +863,11 @@
       <img src="https://brandeps.com/logo-download/W/Wilmar-International-logo-01.png" alt="Wilmar">
       <img src="https://www.alfalaval.com/globalassets/images/placeholders/alfa-laval-logo.png" alt="alfa-laval">
       <img src="https://etimg.etb2bimg.com/photo/87586804.cms" alt="ACG">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/NTPC_Logo.svg/2560px-NTPC_Logo.svg.png" alt="ACG">
-      <img src="https://www.davidponzo.com/wp-content/uploads/2023/02/INDORAMA-LOGO_RGB-1030x277.png" alt="ACG">
-      <img src="https://images.seeklogo.com/logo-png/10/1/pidilite-logo-png_seeklogo-108745.png" alt="ACG">
-      <img src="https://e7.pngegg.com/pngimages/849/146/png-clipart-cargill-gmbh-logo-cargill-deutschland-gmbh-cargill-holding-germany-gmbh-cargill-logo-text-trademark.png" alt="ACG">
-      <img src="https://www.supremeagro.com/wp-content/uploads/2024/07/uttam-logo-1.png" alt="ACG">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/NTPC_Logo.svg/2560px-NTPC_Logo.svg.png" alt="NTPC">
+      <img src="https://www.davidponzo.com/wp-content/uploads/2023/02/INDORAMA-LOGO_RGB-1030x277.png" alt="Indorama">
+      <img src="https://images.seeklogo.com/logo-png/10/1/pidilite-logo-png_seeklogo-108745.png" alt="Pidilite">
+      <img src="https://e7.pngegg.com/pngimages/849/146/png-clipart-cargill-gmbh-logo-cargill-deutschland-gmbh-cargill-holding-germany-gmbh-cargill-logo-text-trademark.png" alt="Cargill">
+      <img src="https://www.supremeagro.com/wp-content/uploads/2024/07/uttam-logo-1.png" alt="Uttam">
     </div>
   </section>
 
@@ -790,66 +881,162 @@
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZ72AKQFzBpvyHmePg6Cf-lkKNWUmSOarQlA&s" alt="UL">
       <img src="https://greenearthproducts.eu/wp-content/uploads/2023/03/combi-sedex-smeta.jpg" alt="sedex-smeta">
       <img src="https://drives-solutions.com/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-26-at-9.46.48-AM.jpeg" alt="apm">
-    
-      
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact">
     <h2>Contact Us</h2>
-    <p><strong>Head Office:</strong><br>
-      Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
-    <p><strong>Phone:</strong> +91-9422311279 / +91-9011010009<br>
-      <strong>Email:</strong> 
-      <a href="mailto:info@vacpl.net">info@vacpl.net</a> | 
-      <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a></p>
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <h3>Head Office</h3>
+        <p>Plot No. 21/5/1, D1 Block, MIDC, Chinchwad, Pune, Maharashtra, India</p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <h3>Phone</h3>
+        <p>+91-9422311279<br>+91-9011010009</p>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <h3>Email</h3>
+        <p>
+          <a href="mailto:info@vacpl.net">info@vacpl.net</a><br>
+          <a href="mailto:vacplpuneindia@gmail.com">vacplpuneindia@gmail.com</a>
+        </p>
+      </div>
+    </div>
   </section>
 
   <footer>
     © 2025 Venkateshwara Automation & Control Pvt. Ltd. | All Rights Reserved
   </footer>
 
-  <!-- SLIDER SCRIPT -->
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top">↑</button>
+
+  <!-- SCRIPTS -->
   <script>
-const slider = document.getElementById('slider');
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('dots');
-let index = 0;
-
-// Create dots
-slides.forEach((_, i) => {
-  const dot = document.createElement('span');
-  dot.addEventListener('click', () => goToSlide(i));
-  dotsContainer.appendChild(dot);
-});
-
-const dots = dotsContainer.querySelectorAll('span');
-
-function updateSlider() {
-  slider.style.transform = `translateX(-${index * 100}%)`;
-  dots.forEach(dot => dot.classList.remove('active'));
-  dots[index].classList.add('active');
-}
-
-function goToSlide(i) {
-  index = i;
-  updateSlider();
-}
-
-function autoSlide() {
-  index = (index + 1) % slides.length;
-  updateSlider();
-}
-
-updateSlider();
-setInterval(autoSlide, 4000); // 4 seconds
-
-
-</script>
-
-
-
-
+    // Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    
+    mobileMenuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      
+      // Back to top button visibility
+      const backToTop = document.getElementById('back-to-top');
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
+    });
+    
+    // Back to top functionality
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Products Slider
+    const slider = document.getElementById('slider');
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+    const prevBtn = document.getElementById('slider-prev');
+    const nextBtn = document.getElementById('slider-next');
+    let index = 0;
+    
+    // Create dots
+    slides.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    
+    const dots = dotsContainer.querySelectorAll('span');
+    
+    function updateSlider() {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
+    
+    function goToSlide(i) {
+      index = i;
+      updateSlider();
+    }
+    
+    function nextSlide() {
+      index = (index + 1) % slides.length;
+      updateSlider();
+    }
+    
+    function prevSlide() {
+      index = (index - 1 + slides.length) % slides.length;
+      updateSlider();
+    }
+    
+    // Event listeners for slider navigation
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Auto slide
+    let slideInterval = setInterval(nextSlide, 5000);
+    
+    // Pause auto slide on hover
+    slider.parentElement.addEventListener('mouseenter', () => {
+      clearInterval(slideInterval);
+    });
+    
+    slider.parentElement.addEventListener('mouseleave', () => {
+      slideInterval = setInterval(nextSlide, 5000);
+    });
+    
+    // Touch events for mobile swiping
+    let startX = 0;
+    let endX = 0;
+    
+    slider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    });
+    
+    slider.addEventListener('touchend', (e) => {
+      endX = e.changedTouches[0].clientX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (startX - endX > swipeThreshold) {
+        nextSlide(); // Swipe left
+      } else if (endX - startX > swipeThreshold) {
+        prevSlide(); // Swipe right
+      }
+    }
+    
+    updateSlider();
+  </script>
 </body>
 </html>

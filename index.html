@@ -242,21 +242,56 @@
 
 /* BROCHURE SLIDER */
 .brochure-container {
-  width: 90%;
-  max-width: 900px;
-  margin: 0 auto;
+  max-width: 600px;
+  margin: auto;
   overflow: hidden;
   border-radius: 15px;
-  background: white;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.15);
 }
 
-#brochureSlider img {
+.brochure-slider {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.brochure-slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.brochure-slide img {
   width: 100%;
   height: auto;
   object-fit: contain;
-  background: white;
+  padding: 20px;
 }
+
+/* Dots */
+.brochure-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.brochure-dots span {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: #b19cd9;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.brochure-dots .active {
+  background: #5A189A;
+  transform: scale(1.3);
+}
+
 
     
   </style>
@@ -293,42 +328,42 @@
     </div>
   </section>
 
-<!-- BROCHURE SECTION -->
 <section id="brochure">
   <h2 class="content-center">Company Brochure</h2>
 
-  <div class="slider-container brochure-container">
-    <div class="slider" id="brochureSlider">
+  <div class="brochure-container">
+    <div class="brochure-slider" id="brochureSlider">
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0001.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0001.jpg" alt="Page 1">
       </div>
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0002.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0002.jpg" alt="Page 2">
       </div>
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0003.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0003.jpg" alt="Page 3">
       </div>
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0004.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0004.jpg" alt="Page 4">
       </div>
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0005.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0005.jpg" alt="Page 5">
       </div>
 
-      <div class="slide">
-        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0006.jpg?raw=true">
+      <div class="brochure-slide">
+        <img src="VACPL BROCHURE 06_R02 - Copy_page-0006.jpg" alt="Page 6">
       </div>
 
     </div>
   </div>
 
-  <div class="dots" id="brochureDots"></div>
+  <div class="brochure-dots" id="brochureDots"></div>
 </section>
+
 
 
 
@@ -497,34 +532,44 @@ function autoSlide() {
 updateSlider();
 setInterval(autoSlide, 4000); // 4 seconds
 
-// === BROCHURE SLIDER ===
-const bSlider = document.getElementById('brochureSlider');
-const bSlides = bSlider.querySelectorAll('.slide');
-const bDotsContainer = document.getElementById('brochureDots');
-let bIndex = 0;
+
+</script>
+
+  <script>
+const brochureSlider = document.getElementById("brochureSlider");
+const brochureSlides = document.querySelectorAll(".brochure-slide");
+const brochureDotsContainer = document.getElementById("brochureDots");
+let brochureIndex = 0;
 
 // Create dots
-bSlides.forEach((_, i) => {
-  const dot = document.createElement('span');
-  dot.addEventListener('click', () => {
-    bIndex = i;
-    updateBrochureSlider();
-  });
-  bDotsContainer.appendChild(dot);
+brochureSlides.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.addEventListener("click", () => goToBrochureSlide(i));
+  brochureDotsContainer.appendChild(dot);
 });
 
-const bDots = bDotsContainer.querySelectorAll('span');
+const brochureDots = brochureDotsContainer.querySelectorAll("span");
 
 function updateBrochureSlider() {
-  bSlider.style.transform = `translateX(-${bIndex * 100}%)`;
-
-  bDots.forEach(dot => dot.classList.remove('active'));
-  bDots[bIndex].classList.add('active');
+  brochureSlider.style.transform = `translateX(-${brochureIndex * 100}%)`;
+  brochureDots.forEach(dot => dot.classList.remove("active"));
+  brochureDots[brochureIndex].classList.add("active");
 }
 
+function goToBrochureSlide(i) {
+  brochureIndex = i;
+  updateBrochureSlider();
+}
 
-    
+function autoBrochureSlide() {
+  brochureIndex = (brochureIndex + 1) % brochureSlides.length;
+  updateBrochureSlider();
+}
+
+updateBrochureSlider();
+setInterval(autoBrochureSlide, 3500);
 </script>
+
 
 </body>
 </html>

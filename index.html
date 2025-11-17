@@ -239,6 +239,26 @@
       section { padding: 60px 8%; }
       .slider img { height: 250px; }
     }
+
+/* BROCHURE SLIDER */
+.brochure-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  background: white;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+}
+
+#brochureSlider img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  background: white;
+}
+
+    
   </style>
 </head>
 <body>
@@ -273,16 +293,43 @@
     </div>
   </section>
 
-<!-- COMPANY BROCHURE VIEWER -->
+<!-- BROCHURE SECTION -->
 <section id="brochure">
   <h2 class="content-center">Company Brochure</h2>
 
-  <iframe
-    src="https://vacpl.github.io/VACPL%20BROCHURE%2006_R02%20-%20Copy.pdf"
-    style="width:90%; height:650px; border:0; display:block; margin:auto;
-    border-radius:15px; box-shadow:0 4px 20px rgba(0,0,0,0.25);">
-  </iframe>
+  <div class="slider-container brochure-container">
+    <div class="slider" id="brochureSlider">
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0001.jpg?raw=true">
+      </div>
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0002.jpg?raw=true">
+      </div>
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0003.jpg?raw=true">
+      </div>
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0004.jpg?raw=true">
+      </div>
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0005.jpg?raw=true">
+      </div>
+
+      <div class="slide">
+        <img src="https://github.com/VACPL/vacpl.github.io/blob/main/VACPL%20BROCHURE%2006_R02%20-%20Copy_page-0006.jpg?raw=true">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="dots" id="brochureDots"></div>
 </section>
+
 
 
 
@@ -449,6 +496,42 @@ function autoSlide() {
 
 updateSlider();
 setInterval(autoSlide, 4000); // 4 seconds
+
+// === BROCHURE SLIDER ===
+const bSlider = document.getElementById('brochureSlider');
+const bSlides = bSlider.querySelectorAll('.slide');
+const bDotsContainer = document.getElementById('brochureDots');
+let bIndex = 0;
+
+// Create dots
+bSlides.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => {
+    bIndex = i;
+    updateBrochureSlider();
+  });
+  bDotsContainer.appendChild(dot);
+});
+
+const bDots = bDotsContainer.querySelectorAll('span');
+
+function updateBrochureSlider() {
+  bSlider.style.transform = `translateX(-${bIndex * 100}%)`;
+
+  bDots.forEach(dot => dot.classList.remove('active'));
+  bDots[bIndex].classList.add('active');
+}
+
+// Auto-slide
+setInterval(() => {
+  bIndex = (bIndex + 1) % bSlides.length;
+  updateBrochureSlider();
+}, 4500);
+
+updateBrochureSlider();
+
+
+    
 </script>
 
 </body>
